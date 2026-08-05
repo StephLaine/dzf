@@ -20,3 +20,12 @@ npm-debug.log*
 # Editor
 .idea/
 .vscode/
+
+# Archive local du site d'origine (référence, non publiée)
+DZF - Direction des Zones Franches.html
+DZF - Direction des Zones Franches_files/
+
+# Fichiers sources déposés localement (déjà copiés dans web/public/images)
+CODEVI-1.jpg
+Coat_of_arms_of_Haiti*.svg
+ministre du commerce.jpeg

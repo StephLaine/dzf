@@ -52,7 +52,8 @@ tuiles de démarches et pied de page ministériel.
   développement ». Le contenu rédigé pour ces sections est conservé dans
   `web/src/drafts/`.
 
-## Référence
+## Déploiement
 
-Le site d'origine (`dzf.gouv.ht`) est archivé à la racine du dépôt à titre de
-référence.
+L'application se trouve dans le sous-dossier `web/`. Sur Vercel, le champ
+**Root Directory** doit donc être réglé sur `web` pour que le framework soit
+détecté correctement.

@@ -1,0 +1,78 @@
+@import "tailwindcss";
+
+:root {
+  --background: #ffffff;
+  --foreground: #1a1a1a;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+
+  /* Official palette drawn from the Haitian national flag:
+     blue #00209F and red #D21034, with institutional tints. */
+  --color-ht-blue-950: #000b33;
+  --color-ht-blue-900: #00104d;
+  --color-ht-blue-800: #001a7a;
+  --color-ht-blue-700: #00209f;
+  --color-ht-blue-600: #1136b5;
+  --color-ht-blue-200: #c3ccea;
+  --color-ht-blue-100: #e6eaf7;
+  --color-ht-blue-50: #f4f6fc;
+
+  --color-ht-red-700: #96061f;
+  --color-ht-red-600: #b00d2a;
+  --color-ht-red-500: #d21034;
+
+  --color-ink: #1a1a1a;
+  --color-muted: #555c68;
+  --color-panel: #f5f6f8;
+  --color-line: #d3d7de;
+
+  --color-focus: #ffcc00;
+  --color-success: #00703c;
+}
+
+html {
+  color-scheme: light;
+}
+
+@layer base {
+  body {
+    background: var(--background);
+    color: var(--foreground);
+    font-size: 1rem;
+    line-height: 1.65;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4 {
+    letter-spacing: -0.01em;
+  }
+
+  a {
+    color: var(--color-ht-blue-700);
+    text-underline-offset: 0.15em;
+  }
+
+  a:hover {
+    color: var(--color-ht-blue-600);
+  }
+
+  /* Accessible focus indicator, required on public-sector sites. */
+  a:focus-visible,
+  button:focus-visible,
+  input:focus-visible,
+  textarea:focus-visible,
+  select:focus-visible,
+  [tabindex]:focus-visible {
+    outline: 3px solid var(--color-focus);
+    outline-offset: 1px;
+    box-shadow: 0 0 0 5px var(--color-ht-blue-900);
+    text-decoration: none;
+  }
+}

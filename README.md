@@ -12,7 +12,6 @@ déconcentrée du Ministère du Commerce et de l'Industrie d'Haïti.
 ## Démarrage
 
 ```bash
-cd web
 npm install
 npm run dev
 ```
@@ -29,7 +28,6 @@ npm run lint    # vérification ESLint
 ## Structure
 
 ```
-web/
 ├── src/
 │   ├── app/            # routes (App Router)
 │   ├── components/     # composants partagés
@@ -50,10 +48,9 @@ tuiles de démarches et pied de page ministériel.
 - **Accueil** — terminé
 - **La DZF, Personnel, Activités, Galerie, Contact** — page « En cours de
   développement ». Le contenu rédigé pour ces sections est conservé dans
-  `web/src/drafts/`.
+  `src/drafts/`.
 
 ## Déploiement
 
-L'application se trouve dans le sous-dossier `web/`. Sur Vercel, le champ
-**Root Directory** doit donc être réglé sur `web` pour que le framework soit
-détecté correctement.
+L'application se trouve à la racine du dépôt : Vercel détecte Next.js
+automatiquement, sans réglage particulier.

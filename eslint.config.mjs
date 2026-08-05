@@ -12,6 +12,8 @@ const eslintConfig = defineConfig([
     "out/**",
     "build/**",
     "next-env.d.ts",
+    // Archive locale du site d'origine (non suivie par Git, non lintée).
+    "DZF - Direction des Zones Franches_files/**",
   ]),
 ]);
 

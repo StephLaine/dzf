@@ -5,6 +5,8 @@ import PageHero from "@/components/PageHero";
 import Breadcrumbs from "@/components/Breadcrumbs";
 import Container from "@/components/Container";
 import SectionHeading from "@/components/SectionHeading";
+import DocumentCard from "@/components/DocumentCard";
+import { ACCREDITATION_DOCUMENTS, INVESTMENT_DOCUMENTS, LEGAL_FRAMEWORK_DOCUMENTS } from "@/lib/documents";
 
 export const metadata: Metadata = {
   title: "La DZF — Direction des Zones Franches",
@@ -47,7 +49,7 @@ const ADVANTAGES = [
 const RELATED = [
   { label: "Personnel et structure", href: "/personnel" },
   { label: "Sessions du CNZF et actualités", href: "/activites" },
-  { label: "Procédure d'accréditation", href: "/contact" },
+  { label: "Procédure d'accréditation", href: "#documents-accreditation" },
 ];
 
 export default function LaDzfPage() {
@@ -148,10 +150,22 @@ export default function LaDzfPage() {
               <h2 className="border-b border-line bg-panel px-5 py-3 text-xs font-bold tracking-[0.14em] text-ht-blue-900 uppercase">
                 Cadre légal
               </h2>
-              <ul className="space-y-3 px-5 py-4 text-sm text-muted">
-                <li>Loi du 9 juillet 2002 sur les zones franches</li>
-                <li>Textes d&apos;application et arrêtés ministériels</li>
-                <li>Décisions du Conseil National des Zones Franches (CNZF)</li>
+              <ul className="divide-y divide-line text-sm">
+                {LEGAL_FRAMEWORK_DOCUMENTS.map((doc) => (
+                  <li key={doc.href}>
+                    <a
+                      href={doc.href}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="block px-5 py-3 font-medium text-ht-blue-900 no-underline hover:underline"
+                    >
+                      {doc.title}
+                      <span className="mt-0.5 block text-xs font-normal text-muted">
+                        PDF · {doc.sizeLabel}
+                      </span>
+                    </a>
+                  </li>
+                ))}
               </ul>
             </div>
 
@@ -183,6 +197,50 @@ export default function LaDzfPage() {
               </div>
             ))}
           </div>
+        </div>
+
+        {/* Accreditation documents and forms */}
+        <div id="documents-accreditation" className="mt-16 scroll-mt-24 border-t border-line pt-12">
+          <SectionHeading
+            eyebrow="Procédure d'accréditation"
+            title="Documents et formulaires"
+            description="Formulaires, guides et pièces requises pour toute demande d'obtention du statut de zone franche."
+          />
+          <div className="mt-8 grid gap-5 sm:grid-cols-2">
+            {ACCREDITATION_DOCUMENTS.map((doc) => (
+              <DocumentCard key={doc.href} document={doc} />
+            ))}
+          </div>
+        </div>
+
+        {/* Investment Resources — CFI-Invest Haïti partnership */}
+        <div className="mt-16 border-t border-line pt-12">
+          <SectionHeading
+            eyebrow="Partenariat CFI-Invest Haïti"
+            title="Ressources pour investisseurs"
+            description="En partenariat avec le Centre de Facilitation des Investissements (CFI-Invest Haïti), organisme autonome de l'État haïtien, la DZF met à la disposition de ses usagers des documents stratégiques sur l'investissement en Haïti."
+          />
+
+          {INVESTMENT_DOCUMENTS.length > 0 ? (
+            <div className="mt-8 grid gap-5 sm:grid-cols-2">
+              {INVESTMENT_DOCUMENTS.map((doc) => (
+                <DocumentCard key={doc.href} document={doc} />
+              ))}
+            </div>
+          ) : (
+            <div className="mt-8 border border-line border-t-4 border-t-ht-red-500 bg-panel p-6 text-sm text-muted">
+              Les premiers documents seront publiés prochainement dans le cadre de la campagne
+              numérique du CFI-Invest Haïti.
+            </div>
+          )}
+
+          <p className="mt-6 text-sm text-muted">
+            Pour en savoir plus sur les opportunités d&apos;investissement en Haïti, consultez{" "}
+            <a href="https://www.investhaiti.ht" target="_blank" rel="noopener noreferrer">
+              le site du CFI-Invest Haïti
+            </a>
+            .
+          </p>
         </div>
 
       </Container>
